@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    <title>Locker</title>
+
+
+
+    <style>
+    .displaynone{
+        display:none;
+    }
+    .desaparecer{
+        display: none;
+    }
+    
+    
+    
+    
+    </style>
+
+    <script>
+    function sumardia() {
+        dia += 1;
+        if (dia == 32 ){
+            dia = 1;
+        }
+   
+    document.getElementById("dia").innerHTML = dia;
+}
+    function restardia(){
+        dia -= 1;
+        if (dia == 0){
+            dia=31;
+        }
+        document.getElementById("dia").innerHTML = dia;
+    }
+    function sumarmes(){
+        mes += 1;
+        if (mes == 13){
+            mes = 1;
+        }
+        document.getElementById("mes").innerHTML = mes;
+    }
+    
+    function restarmes(){
+        mes -= 1;
+        if (mes == 0){
+            mes=12;
+        }
+        document.getElementById("mes").innerHTML = mes;
+    }
+    function sumaranio(){
+        anio += 1;
+        document.getElementById("anio").innerHTML = anio;
+    }
+    function restaranio(){
+        anio -= 1;
+        document.getElementById("anio").innerHTML = anio;
+    }
+    function intervalo (){
+        if (dia == 12 && mes == 10 && anio == 1996)
+        {
+            window.open("https://www.instagram.com/ilianunleashed");
+            clearInterval(lectura);
+        }
+    }
+
+    </script>
+</head>
+<body class="container" id="body">
+    <div class="col-12" style="margin-top: 50px;">
+        <h1 class="text-center">Intenta averiguar mi fecha de nacimiento!! tienes 10 seg</h1>
+    </div>
+    <div class="row" style="margin-top: 50px;margin-bottom: 50px;">
+        <h1 id="segundos" class="col-6 text-right"></h1> <h1 id="milesimas" class="col-6 text-left"></h1>
+    </div>
+    <div class="row">
+        
+        <div class="col-2" ><h1 id="dia" class="text-center" style="padding-top: 25px;"></h1></div>
+        <div class="col-1">
+            <button id="sumardia" class="btn btn-primary btn-lg btn-block" onclick="sumardia()">+1</button>
+            <button id="restardia" class="btn btn-danger btn-lg btn-block" onclick="restardia()">-1</button>    
+        </div>
+        <div class="col-2"><h1 id="mes" class="text-center" style="padding-top: 25px;"></h1></div>
+        <div class="col-1">
+            <button id="sumarmes" class="btn btn-primary btn-lg btn-block" onclick="sumarmes()">+1</button>
+        <button id="restarmes" class="btn btn-danger btn-lg btn-block" onclick="restarmes()">-1</button>  
+        </div>
+        <div class="col-3"><h1 id="anio" class="text-center" style="padding-top: 25px;"></h1></div>
+        <div class="col-1">
+            <button id="sumaranio" class="btn btn-primary btn-lg btn-block" onclick="sumaranio()">+1</button>
+        <button id="restaranio" class="btn btn-danger btn-lg btn-block" onclick="restaranio()">-1</button> 
+        </div>
+        
+
+
+
+
+    </div>
+
+    <script>
+        var segundos = 0;
+        var milesimas = 0;
+        document.getElementById("segundos").innerHTML = segundos;
+        document.getElementById("milesimas").innerHTML = milesimas;
+        var contador = setInterval(() => {
+            milesimas += 10;
+            document.getElementById("milesimas").innerHTML = milesimas;
+            if (milesimas == 1000 ){
+                milesimas = 0;
+                segundos += 1;
+                document.getElementById("segundos").innerHTML = segundos;
+                document.getElementById("milesimas").innerHTML = milesimas;
+            }
+            else if (segundos == 10){
+                //window.open("https://www.youtube.com/watch?v=F6uUY-BNLbY");
+                clearInterval(contador);
+                var body = document.getElementById("body");
+                body.classList.add("desaparecer");
+            }
+        }, 10);
+
+
+
+
+
+    var dia = 1;
+    var mes = 1;
+    var anio = 2000;
+        document.getElementById("dia").innerHTML = dia;
+        document.getElementById("mes").innerHTML = mes;
+        document.getElementById("anio").innerHTML = anio;
+    var lectura = setInterval(intervalo => {  if (dia == 12 && mes == 10 && anio == 1996)
+        {
+            window.open("https://www.instagram.com/ilianunleashed");
+            clearInterval(lectura);
+        }},500);
+
+    </script>
+    
+</body>
+</html>

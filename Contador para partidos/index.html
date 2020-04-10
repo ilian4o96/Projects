@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+        function desaparecerAnuncio(){
+            anuncioMarcador = " ";
+            document.getElementById("anuncioMarcador").innerHTML = anuncioMarcador;
+        }
+        
+        function sumarLocal(){
+            contadorLocal += 1 ;
+            document.getElementById("numeroLocal").innerHTML = contadorLocal;
+        }
+        function restarLocal(){
+            contadorLocal -= 1;
+            document.getElementById("numeroLocal").innerHTML = contadorLocal;
+        }
+        function sumarVisitante(){
+            contadorVisitante += 1;
+            document.getElementById("numeroVisitante").innerHTML = contadorVisitante;
+        }
+        function restarVisitante(){
+            contadorVisitante -= 1;
+            
+            document.getElementById("numeroVisitante").innerHTML = contadorVisitante;
+        }
+        function restart(){
+            contadorVisitante = 0;
+            contadorLocal = 0;
+            document.getElementById("numeroLocal").innerHTML = contadorLocal;
+         document.getElementById("numeroVisitante").innerHTML = contadorVisitante;
+        }
+
+        function puntoVisitante(){
+            anuncioMarcador = "El equipo visitante ha marcado"
+            document.getElementById("anuncioMarcador").innerHTML = anuncioMarcador;
+            setTimeout(desaparecerAnuncio,3000);
+
+        }
+
+        function puntoLocal(){
+            anuncioMarcador = "El equipo local ha marcado"
+            document.getElementById("anuncioMarcador").innerHTML = anuncioMarcador;
+            setTimeout(desaparecerAnuncio,3000);
+
+        }
+        function pierdeLocal(){
+            anuncioMarcador = "El equipo local ha perdido 1 punto"
+            document.getElementById("anuncioMarcador").innerHTML = anuncioMarcador;
+            setTimeout(desaparecerAnuncio,3000);
+
+        }
+        function pierdeVisitante(){
+            anuncioMarcador = "El equipo visitante ha perdido 1 punto"
+            document.getElementById("anuncioMarcador").innerHTML = anuncioMarcador;
+            setTimeout(desaparecerAnuncio,3000);
+
+        }
+
+
+
+    </script>
+</head>
+<body class="container">
+    <div style="height: 300px;"></div>
+<div class="row">
+    
+    <div class="col-3  text-center">
+        <button onclick="sumarLocal(); puntoLocal()" class="btn btn-success btn-lg btn-block">+1</button>
+        
+    </div>
+    <div class="col-6  ">
+
+        <div class="text-center">
+
+        <span id="numeroLocal" class="display-1"> </span>
+         <span class="display-1">:</span>
+        <span id="numeroVisitante" class="display-1"></span>
+
+    </div>
+
+    </div>
+    <div class="col-3  text-center">
+        <button onclick="sumarVisitante(); puntoVisitante()" class="btn btn-success btn-lg btn-block">+1</button>
+       
+    </div>
+</div>
+
+<div class="row">
+        <div class="col-3  text-center">
+        <button onclick="restarLocal(); pierdeLocal()" class="btn btn-danger btn-lg btn-block">-1</button>
+        </div>
+
+
+        <div class="col-6  text-center">
+        <button onclick="restart()" class="btn btn-primary btn-lg btn-block">Restart</button>
+        </div>  
+        <div class="col-3  text-center">
+        <button onclick="restarVisitante();pierdeVisitante() " class="btn btn-danger btn-lg btn-block">-1</button>
+        </div>
+    </div>
+    <h1 id="anuncioMarcador" class="text-center animated infinite bounce" style="padding: 100px;"></h1>
+<script>
+        var anuncioMarcador
+        var contadorLocal = 0 ;
+        var contadorVisitante = 0;
+ document.getElementById("numeroLocal").innerHTML = contadorLocal;
+ document.getElementById("numeroVisitante").innerHTML = contadorVisitante;
+
+</script>
+</body>
+</html>

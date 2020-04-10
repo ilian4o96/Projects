@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        button{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body class=" container">
+
+    <div style="margin: 100px; background-color: rgb(199, 197, 197);padding: 50px;border-radius: 5px;">
+        <h1 class="text-center">Esta es una calculadora multi-task!</h1>
+
+    </div
+    >
+
+
+
+
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 text-center border">
+        <h1 id="pantalla" ></h1>
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <button onclick="cero()" class="btn btn-secondary col-1">0</button>
+    <button onclick="uno()" class="btn btn-secondary col-1">1</button>
+    <button onclick="dos()" class="btn btn-secondary col-1">2</button>
+    <button onclick="suma()" class="col-1 btn btn-info">+</button>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <button onclick="tres()" class="btn btn-secondary col-1">3</button>
+    <button onclick="cuatro()" class="btn btn-secondary col-1">4</button>
+    <button onclick="cinco()" class="btn btn-secondary col-1">5</button>
+    <button onclick="resta()" class="col-1 btn btn-info">-</button>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <button onclick="seis()" class=" btn btn-secondary col-1">6</button>
+    <button onclick="siete()"class="btn btn-secondary col-1">7</button>
+    <button onclick="ocho()"class="btn btn-secondary col-1">8</button>
+    <button onclick="multiplicacion()" class="col-1 btn btn-info">*</button>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <button onclick="nueve()" class="btn btn-secondary col-1">9</button>
+    <button onclick="borrar()" class="col-1 btn btn-danger">C</button>
+    <button onclick="igual()" class="col-1 btn btn-success">=</button>
+    <button onclick="division()" class="col-1 btn btn-info">/</button>
+    
+    
+    <div class="col-4"></div>
+</div>
+
+    <script>
+        var numero = "0";
+        document.getElementById("pantalla").innerHTML = numero;
+        var quitar ;
+        var operandoUno ;
+        var operandoDos ;
+        var operacion; 
+
+        function borrar(){
+            numero = "0";
+            quitar = "0";
+            operandoDos = "0";
+            operandoUno = "0";
+            operacion = "";
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+        
+function quitarCero(){
+        if (numero == "0"){
+                numero = quitar;
+                document.getElementById("pantalla").innerHTML = numero;
+            }
+            else {
+                numero = numero + quitar; 
+                document.getElementById("pantalla").innerHTML = numero;
+            }
+        }
+
+        function cero(){
+             numero = numero + "0";
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+        function uno(){
+            quitar = "1" ;
+            quitarCero()
+            
+        }
+
+        function dos(){
+            quitar = "2";
+            quitarCero()
+             
+        }
+        function tres(){
+            quitar = "3";
+            quitarCero()
+        }
+        function cuatro(){
+            quitar = "4";
+            quitarCero()
+        }
+        function cinco(){
+            quitar = "5";
+            quitarCero()
+        }
+        function seis(){
+            quitar = "6";
+            quitarCero()
+        }
+        function siete(){
+            quitar = "7";
+            quitarCero()
+        }
+        function ocho(){
+            quitar = "8";
+            quitarCero()
+        }
+        function nueve(){
+            quitar = "9";
+            quitarCero()
+        }
+        function suma(){
+            operacion ="+";
+            operandoUno = numero ;
+            numero = 0 ;
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+        function resta(){
+            operacion = "-";
+            operandoUno = numero ;
+            numero = 0 ;
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+        function multiplicacion() {
+            operacion = "*";
+            operandoUno = numero ;
+            numero = 0 ;
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+        function division(){
+            operacion = "/";
+            operandoUno = numero ;
+            numero = 0 ;
+            document.getElementById("pantalla").innerHTML = numero;
+        }
+
+        function igual(){
+            if (operacion == "+"){
+            operandoDos = numero;
+            numero = Number(operandoUno) + Number(operandoDos);
+            document.getElementById("pantalla").innerHTML = numero;
+            }
+            else if (operacion == "-"){
+                operandoDos = numero;
+            numero = Number(operandoUno) - Number(operandoDos);
+            document.getElementById("pantalla").innerHTML = numero;
+            }
+            else if (operacion == "*"){
+                operandoDos = numero;
+            numero = Number(operandoUno) * Number(operandoDos);
+            document.getElementById("pantalla").innerHTML = numero;
+            }
+            else if (operacion == "/"){
+                operandoDos = numero;
+            numero = Number(operandoUno) / Number(operandoDos);
+            document.getElementById("pantalla").innerHTML = numero;
+            }
+        }
+        
+   </script>
+
+</body>
+</html>
